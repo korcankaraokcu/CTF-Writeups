@@ -5,7 +5,7 @@ However, we got 3 major problems:
 2. All functions in the got table are used in the main function and we can only modify `puts` at once
    * `puts` is used for looping, thus leaving us no other function to use for magic gadget
 3. Magic gadget has a constraint: **rax=NULL**
-   * rax is non-zero after the `puts` call
+   * rax is non-zero before the `puts` call
 
 ### Solution
 
