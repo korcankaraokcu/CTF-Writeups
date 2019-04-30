@@ -2,8 +2,7 @@ Scanning the binary with DIE shows us that it's packed with UPX
 
 ![](images/bugger1.png)
 
-However, none of the UPX unpackers worked on it, so I decided to unpack it manually. I'm going to use radare2 for unpacking  
-The binary is also protected with an anti-debugger so we must get rid of it first. To do that, we are going to stop at the first ptrace syscall
+However, none of the UPX unpackers worked on it, so I decided to unpack it manually. I'm going to use radare2 for unpacking. The binary is also protected with an anti-debugger so we must get rid of it first. To do that, we are going to stop at the first ptrace syscall
 ```
 r2 -d ./bugger
 dcs ptrace
@@ -35,13 +34,14 @@ pf.elf_header
 
 ![](images/bugger5.png)
 
-Bingo! It's an elf header, lets see how many `PLT_LOAD` program headers it has got by executing the command `pf 9? (elf_phdr)phdr @ $$+0x40!0x200~..`
+Bingo! It's an elf header, lets see how many `PLT_LOAD` program headers it has got by executing the command  
+`pf 9? (elf_phdr)phdr @ $$+0x40!0x200~..`
 
 ![](images/bugger6.png)
 
 Exactly 4! We are on the right track. You can quit the view by hitting **q** btw. Anyway, lets dump them into a file. We must calculate how many bytes we have to dump first. Subtracting the ending address of the last region from the starting address of the first region gives us the required offset
 
-**0x00007fc0c6761000-0x00007fc0c6754000=0xd000**
+**0x00007fc0c6761000-0x00007fc0c6754000=0xd000**  
 `wtf bugger_dump 0xd000`
 
 Opening the bugger_dump with IDA and selecting the function **sub_9812** will show us the flag check routine
@@ -70,7 +70,7 @@ s $$+0x96B2
 db $$
 dc
 ```
-As input, you can input anything, I've used *0123456789012345678901234567890123456789* for this session
+As input, you can input anything, I've used *0123456789012345678901234567890123456789* for this session  
 If you single step 9 times after the breakpoint hit, you'll see the 2nd mode of `strcmp` which compares two bytes at once
 ```
 ds;ds;ds;ds;ds;ds;ds;ds;ds
