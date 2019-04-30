@@ -1,4 +1,4 @@
-This is basically a x64 format string attack. Our goal is to overwrite the got table with a magic gadget
+This is basically a x64 format string attack. Our goal is to overwrite the got table with a magic gadget  
 However, we got 3 major problems:
 1. We can only write to one address per loop due to addresses containing null bytes
    * We can also write 2 bytes at most at once
