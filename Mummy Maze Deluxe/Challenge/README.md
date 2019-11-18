@@ -1,0 +1,1 @@
+TTMO binary koymamamı istedi, zaten oyun internette var, bulursunuz.
