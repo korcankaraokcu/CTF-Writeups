@@ -34,7 +34,7 @@ Attach your debugger to the kernel and execute the binary as administrator. Afte
 
 ![](images/kernel6.png)
 
-To put a breakpoint at `sub_140001350`, we must calculate its address first. It's offset is 1350, so we must add 1350 to the base: FFFFF880045AB000+1350=FFFFF880045AC350
+To put a breakpoint at `sub_140001350`, we must calculate its address first. Its offset is 1350, so we must add 1350 to the base: FFFFF880045AB000+1350=FFFFF880045AC350
 
 Go the address, convert it to code, then to a function. Finally, pseudocode should give you something like this:
 
