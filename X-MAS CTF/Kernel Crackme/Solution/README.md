@@ -1,16 +1,16 @@
-We are provided with an executable and a driver. The executable loads the driver into kernel space and then uses the "Crackme" device to communicate. Executable sends the user input via "Crackme" device and the driver returns the corresponding encrypted data by using the same device.
+We are provided with an executable and a driver. The executable loads the driver into kernel space and then uses the "Crackme" device to communicate. Executable sends the user input via "Crackme" device and the driver returns the corresponding encrypted data by using the same device. Finally, the executable compares the encrypted user input with the encrypted flag.
 
 Executable side:
 
 ![](images/kernel1.png)
 
+Encrypted flag(`Str2`):
+
+![](images/kernel11.png)
+
 Driver side:
 
 ![](images/kernel2.png)
-
-Finally, the executable compares the encrypted user input with the encrypted flag.
-
-![](images/kernel11.png)
 
 IRP processing(user input processing) starts at the function `sub_140001720`
 
