@@ -46,6 +46,14 @@ Stepping through it will lead us to a huge jump table.
 
 ![](images/kernel9.png)
 
+<p align="center">
+  >mfw jump table contains 116 functions
+</p>
+
+<p align="center">
+  <img src="images/what.png">
+</p>
+
 But fear not, for I, the most curious boi there is, have analysed all of them, so you wont have to. This jump table basically has 12 distinct functions and it loops them every 12 function calls, so it calls them once per loop. Loop repeats itself for 11 times, for every line(16 bytes) in `off_FFFFF880045B7540`:
 
 ![](images/kernel10.png)
