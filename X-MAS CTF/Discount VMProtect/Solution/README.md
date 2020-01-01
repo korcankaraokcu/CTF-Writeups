@@ -697,23 +697,13 @@ for i in range(35):
     a=(a+152) & 0xFF
     a=~a
     if a!=src[i]:
-        lose()
+        byte_6025A0[0]=0
+        break
 ```
 
 I've written the code below to reverse the algorithm. You can also find it in [VM_solve.py](VM_solve.py)
 
 ```python
-"""
-for i in range(35):
-    x=user_input[i]
-    a=((x << 7) | (x >> 1)) & 0xFF
-    a=a^99
-    a=(a+152) & 0xFF
-    a=~a
-    if a!=src[i]:
-        lose()
-"""
-
 src="""18 72 A2 A4 9D 89 1F A2  8D 9B 94 0D 6D 9B 95 EC
 EC 12 9B 94 23 16 9B 6C  13 0E 6D 0D 96 8D 0E 90
 13 97 8A BB CF 64 7E D3  1A 40 23 EC DF 00""".split()
