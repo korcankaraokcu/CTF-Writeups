@@ -6,7 +6,8 @@ for i in range(35):
     a=(a+152) & 0xFF
     a=~a
     if a!=src[i]:
-        lose()
+        byte_6025A0[0]=0
+        break
 """
 
 src="""18 72 A2 A4 9D 89 1F A2  8D 9B 94 0D 6D 9B 95 EC
