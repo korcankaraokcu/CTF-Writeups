@@ -54,7 +54,7 @@ Stepping through it will lead us to a huge jump table.
   <img src="images/what.png">
 </p>
 
-But fear not, for I, the most curious boi there is, have analysed all of them, so you wont have to. This jump table basically has 12 distinct functions and it loops them every 12 function calls, so it calls them once per loop. Loop repeats itself for 11 times, for every line(16 bytes) in `off_FFFFF880045B7540`:
+But fear not, for I, the most curious boi there is, have analysed all of them, so you wont have to. This jump table basically has 12 distinct functions, the rest are variations and duplicates. The algorithm loops them every 12 function calls, so it calls them once per loop. The loop repeats itself for 11 times, for every line(16 bytes) in `off_FFFFF880045B7540`:
 
 ![](images/kernel10.png)
 
